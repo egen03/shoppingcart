@@ -1,0 +1,14 @@
+Build a shopping cart component that:
+
+* allows the user to add a new item to the cart       
+    -each item has a name, cost and quantity 
+
+* displays each item in the cart, as well as the calculated total of all items cost 
+
+* allows the user to update the quantity of each item in the cart 
+
+* allows the user to remove an item from the cart 
+
+* allows the user to wrap an item as a gift for an incurred cost 
+
+* calculates the sales tax and adds it to the subtotal of the items to be purchased
