@@ -40,8 +40,16 @@
 .items{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  border: red solid;
+  grid-gap: 20px;
+  padding: 20px;
 }
 
 .items img{
   width: 100%;
+}
+
+header{
+  background-color: pink;
+  padding: 20px;
 }
