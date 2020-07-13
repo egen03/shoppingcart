@@ -27,15 +27,20 @@ const addToCart = (items) => {
   setCart([...cart, items]);
 };
 
+function Footer (props) {
+  return <h2>{props.total}</h2>
+}
 
 
   return (
     <div className="App">
-      <h1>Items</h1>
+      <h1>Erica's Store</h1>
 
       <header>
         <button>My Cart ({cart.length})</button>
       </header>
+
+    
 
     <div className="items">
       {items.map((items) => (
@@ -50,6 +55,12 @@ const addToCart = (items) => {
       ))}
     </div>
       
+    <div>
+      <h3>Cart total: </h3>
+      <Footer total={items.reduce((a, items) => (a + items.price * items.count), 0)} />
+    </div>
+
+
     </div>
     
   );
