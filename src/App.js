@@ -1,25 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
 
+
 function App() {
+
+  const [cart, setCart] = useState([]);
+
+  const [items] = useState([
+  {
+    name: 'iPhone',
+    cost: '$999.99',
+    img: 'iphone.jpeg'
+  },
+  {
+    name: 'iPad',
+    cost: '$649.99',
+    img: 'ipad.jpg'
+  }
+]);
+
+// function to add item to cart
+
+const addToCart = (items) => {
+  console.log('Item added to cart')
+  setCart([...cart, items]);
+};
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <h1>Items</h1>
+
+      <header>
+        <button>My Cart ({cart.length})</button>
       </header>
+
+    <div className="items">
+      {items.map((items) => (
+        <div className="product">
+          <h3>{items.name}</h3>
+          <h4>{items.cost}</h4>
+          <img src={items.img} alt={items.name} /><br /><br/>
+          <button onClick={() => addToCart(items)}>Add to Cart</button>
+        </div>
+     
+      
+      ))}
     </div>
+      
+    </div>
+    
   );
 }
 
