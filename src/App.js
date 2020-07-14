@@ -27,6 +27,11 @@ const addToCart = (items) => {
   setCart([...cart, items]);
 };
 
+const removeFromCart = (items) => {
+
+}
+
+
 function Footer (props) {
   return <h2>{props.total}</h2>
 }
@@ -48,13 +53,18 @@ function Footer (props) {
           <h3>{items.name}</h3>
           <h4>{items.cost}</h4>
           <img src={items.img} alt={items.name} /><br /><br/>
-          <button onClick={() => addToCart(items)}>Add to Cart</button>
+          <div id="cartButtons">
+          <button onClick={() => addToCart(items)}>Add to Cart</button> 
+          <button onClick={() => removeFromCart(items)}>Remove Item</button>
+          </div>
         </div>
-     
-      
       ))}
     </div>
       
+    {/* <div>
+        <button onClick={() => removeFromCart(items)}>Remove Item</button>
+      </div> */}
+
     <div>
       <h3>Cart total: </h3>
       <Footer total={items.reduce((a, items) => (a + items.price * items.count), 0)} />
