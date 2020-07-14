@@ -27,8 +27,11 @@ const addToCart = (items) => {
   setCart([...cart, items]);
 };
 
-const removeFromCart = (items) => {
-
+const removeFromCart = (itemsToRemove) => {
+  console.log('Item removed from cart')
+  setCart(
+    cart.filter((items) => items !== itemsToRemove)
+  );
 }
 
 
