@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import './App.css';
 
 
@@ -10,13 +9,13 @@ function App() {
   const [items] = useState([
   {
     name: 'iPhone',
-    cost: '$999.99',
-    img: 'iphone.jpeg'
+    cost: 999.99,
+    img: 'https://unsplash.com/photos/z3kBG5xIhjo'
   },
   {
     name: 'iPad',
-    cost: '$649.99',
-    img: 'ipad.jpg'
+    cost: 649.99,
+    img: 'ipad.jpeg'
   }
 ]);
 
@@ -34,10 +33,10 @@ const removeFromCart = (itemsToRemove) => {
   );
 }
 
-
-function Footer (props) {
-  return <h2>{props.total}</h2>
+const cartTotal = () => {
+  return items.reduce((sum, { cost }) => sum + cost, 0) 
 }
+
 
 
   return (
@@ -54,23 +53,20 @@ function Footer (props) {
       {items.map((items) => (
         <div className="product">
           <h3>{items.name}</h3>
-          <h4>{items.cost}</h4>
+          <h4>${items.cost}</h4>
           <img src={items.img} alt={items.name} /><br /><br/>
           <div id="cartButtons">
-          <button onClick={() => addToCart(items)}>Add to Cart</button> 
+          <button onClick={() => addToCart(items)}>Add to Cart</button>
+          &nbsp; &nbsp;
           <button onClick={() => removeFromCart(items)}>Remove Item</button>
           </div>
         </div>
       ))}
     </div>
       
-    {/* <div>
-        <button onClick={() => removeFromCart(items)}>Remove Item</button>
-      </div> */}
-
     <div>
-      <h3>Cart total: </h3>
-      <Footer total={items.reduce((a, items) => (a + items.price * items.count), 0)} />
+      <h3>Cart total: {cartTotal()} </h3>
+       
     </div>
 
 
