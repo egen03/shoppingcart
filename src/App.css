@@ -2,12 +2,12 @@
   text-align: center;
   background-color: #231942;
   color: #e0b1cb;
+
 }
 
 .items{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  
   grid-gap: 20px;
   padding: 20px;
 }

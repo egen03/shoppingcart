@@ -4,17 +4,19 @@ import './App.css';
 
 function App() {
 
+// initalize cart
   const [cart, setCart] = useState([]);
 
+// List all items in store
   const [items] = useState([
   {
     name: 'iPhone',
-    cost: 999.99,
-    img: 'https://unsplash.com/photos/z3kBG5xIhjo'
-  },
+    cost: '$1000',
+    img: 'iphone.jpeg'
+  }, 
   {
     name: 'iPad',
-    cost: 649.99,
+    cost: '$650',
     img: 'ipad.jpeg'
   }
 ]);
@@ -26,6 +28,7 @@ const addToCart = (items) => {
   setCart([...cart, items]);
 };
 
+// function to remove item from cart. Use .filter 
 const removeFromCart = (itemsToRemove) => {
   console.log('Item removed from cart')
   setCart(
@@ -33,11 +36,13 @@ const removeFromCart = (itemsToRemove) => {
   );
 }
 
+// function to get cart total. use .reduce 
 const cartTotal = () => {
-  return items.reduce((sum, { cost }) => sum + cost, 0) 
-}
+  return cart.reduce(
+    (sum, { cost }) => (sum + cost)  , 0); 
+};
 
-
+// =====================================
 
   return (
     <div className="App">
@@ -53,7 +58,7 @@ const cartTotal = () => {
       {items.map((items) => (
         <div className="product">
           <h3>{items.name}</h3>
-          <h4>${items.cost}</h4>
+          <h4>{items.cost}</h4>
           <img src={items.img} alt={items.name} /><br /><br/>
           <div id="cartButtons">
           <button onClick={() => addToCart(items)}>Add to Cart</button>
